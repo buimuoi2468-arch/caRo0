@@ -1,0 +1,100 @@
+body {
+  background-color: #fcf8f2;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px 0;
+}
+
+h2 {
+  margin-top: 20px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+#status {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1f5fbf;
+  margin-bottom: 15px;
+}
+
+/* Khung bàn cờ: số ô --n do JS đặt, kích thước ô chỉnh ở --cell */
+#board {
+  --cell: 30px; /* bàn 12x12 dùng 40px, nếu đổi N = 20 thì dùng 30px */
+  display: grid;
+  grid-template-columns: repeat(var(--n, 20), var(--cell));
+  grid-template-rows: repeat(var(--n, 20), var(--cell));
+  background-color: #f3ead7;
+  border: 3px solid #8a7a5c;
+  gap: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cell {
+  width: var(--cell);
+  height: var(--cell);
+  box-sizing: border-box;
+  border: 1px solid #8a7a5c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(var(--cell) * 0.55);
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.cell:hover {
+  background-color: #e6dac3;
+}
+
+.cell.x {
+  color: #1f5fbf;
+}
+
+.cell.o {
+  color: #c8352b;
+}
+
+/* Nước đi gần nhất */
+.cell.last {
+  box-shadow: inset 0 0 0 2px #e0a030;
+}
+
+/* Các ô chiến thắng */
+.cell.win {
+  background-color: #d4edda !important;
+}
+
+#stats {
+  margin-top: 12px;
+  font-family: Consolas, monospace;
+  font-size: 13px;
+  color: #555;
+  min-height: 18px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+#reset-btn {
+  margin-top: 14px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #8a7a5c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#reset-btn:hover {
+  background-color: #6d5f46;
+}
